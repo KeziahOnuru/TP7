@@ -54,14 +54,14 @@ public class TestImage {
         // 4.5.5.a - verif histogramme
 
         // calcul local de l'histogramme
-        int[] h1 = Operateur.histogramme(image);
+        int[] h1 = Operateur.histogrammeNB(image);
         HistogrammeViewer hv1 = new HistogrammeViewer("Histogramme (program.)", h1, h1, h1);
 
         // verification avec histogramme fourni
         HistogrammeViewer hv2 = new HistogrammeViewer("Histogramme (fourni)", image);
 
         // 4.5.5.b histogramme cumule
-        int[] h2 = Operateur.histogrammeCumule(image);
+        int[] h2 = Operateur.histogrammeCumuleNB(image);
         HistogrammeViewer hv3 = new HistogrammeViewer("Histogramme cumule", h2, h2, h2);
 
         // 4.5.5.c egalisation

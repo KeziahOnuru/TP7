@@ -90,10 +90,14 @@ public class Operateur {
     // OPERATEURS A PROGRAMMER
 
 
-
-
-
-    public static int[] histogramme(BufferedImage img) {
+    /**
+     * Crée un tableau de 256 cases. Chaque case correspond à une teinte de couleur entre noir (255)
+     * et blanc (0). La valeur de chaque case est le nombre de pixels dans l'image de la teinte associée.
+     *
+     * @param img Une image en noir et blanc
+     * @return Un tableau de 256 entiers
+     */
+    public static int[] histogrammeNB(BufferedImage img) {
         int[] h = new int[256];
 
         // parcourt toute l'image, colonne par colonne
@@ -107,9 +111,9 @@ public class Operateur {
         return h;
     }
 
-    public static int[] histogrammeCumule(BufferedImage img) {
+    public static int[] histogrammeCumuleNB(BufferedImage img) {
 
-        int[] h = histogramme(img);
+        int[] h = histogrammeNB(img);
 
         // cumul
         for (int i = 1; i < h.length; i++)
@@ -143,7 +147,7 @@ public class Operateur {
      */
     public static BufferedImage egalisation(BufferedImage image) {
 
-        int[] h = histogrammeCumule(image);
+        int[] h = histogrammeCumuleNB(image);
         double ratio = 255. / h[h.length - 1];
 
         // calcule la LUT
